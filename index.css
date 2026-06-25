@@ -42,32 +42,85 @@ nav a:hover{
   text-decoration: underline;
 }
 
-/* Hero section */
-.hero{
+/* Hero Section Container */
+.hero {
+  min-height: 75vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  height: 70vh;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
+  justify-content: center;
+  padding: 40px 10%;
+  background-color: #f4f4f6;
 }
 
-.hero h1{
-  font-size: 3rem;
-  margin-bottom: 15px;
+/* Flexbox wrapper splitting text and image side-by-side */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1100px;
+  width: 100%;
 }
 
-.hero .highlight{
-  color: #00adb5;
+/* Left Column Styling */
+.hero-text {
+  flex: 1;
+  text-align: left; /* Aligns text cleanly to the left */
 }
 
-.hero p{
-  font-size: 1.2rem;
-  color: #0c0c0c;
-  margin-bottom: 30px;
+.hero-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-text .name {
+  color: #5d0315;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  margin-bottom: 35px;
+}
+
+/* Right Column: Styling your photo container */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* The actual photo styling */
+.hero-image img {
+  width: 320px;         /* Perfect portrait size */
+  height: 320px;        /* Keeps it perfectly square */
+  object-fit: cover;    /* Prevents the image from stretching */
+  border-radius: 50px;  /* Smoothly rounds the corners. Use 50% for a perfect circle! */
+  border: 5px solid #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Adds a premium floating effect */
+}
+
+/* Responsive Design: Stacks text and image on smaller mobile screens */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse; /* Puts image on top, text on bottom on phone screens */
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-image img {
+    width: 240px;
+    height: 240px;
+  }
 }
 
 /*buttons */
@@ -135,20 +188,69 @@ nav a:hover{
 }
 
 /* Contact Section */
-.contact-section{
+.contacts-section {
   text-align: center;
-  padding: 80px 20px;
-  background-color: #1a1a1e;
+  padding: 100px 20px;
+  background-color: #f4f4f6;
 }
 
-.contacts-section h2{
-  margin-bottom: 10px;
+.contacts-section h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
 }
 
-.contacts-section p{
-  margin-bottom: 20px;
+.contacts-section p {
+  margin-bottom: 30px;
+  color: #4a4a4a;
 }
 
+/* Contact Section Layout */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Puts beautiful spacing between the buttons */
+  margin-top: 25px;
+}
+
+/* Base Icon Button Style */
+.contact-icon-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between the logo and the text */
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: transform 0.2s, background-color 0.3s;
+  color: #ffffff;
+}
+
+/* Hover effect for both buttons */
+.contact-icon-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Email Button Color (Your brand burgundy) */
+.email-btn {
+  background-color: #5d0315;
+}
+.email-btn:hover {
+  background-color: #3e020e;
+}
+
+/* LinkedIn Button Color (Official LinkedIn Blue) */
+.linkedin-btn {
+  background-color: #0077b5;
+}
+.linkedin-btn:hover {
+  background-color: #005987;
+}
+
+/* Make the icons inside slightly larger */
+.contact-icon-btn i {
+  font-size: 1.2rem;
+}
 /* Footer */
 footer {
   text-align: center;
